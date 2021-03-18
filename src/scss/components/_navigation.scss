@@ -1,0 +1,48 @@
+.navigation {
+	position: fixed;
+	background: none;
+	z-index: 99;
+	color: white;
+	left: 10%;
+	transform: translateX(-50%);
+	top: 35vw;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+
+		.logo {
+			width: 15vw;
+			position: absolute;
+			top: -20vw;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		li {
+			writing-mode: vertical-rl;
+			text-orientation: mixed;
+			margin: 3vw 0;
+			font-size: 3vw;
+			font-weight: 500;
+			line-height: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer !important;
+			letter-spacing: 4px;
+
+			&.active {
+				&:after {
+					background: white;
+				}
+				font-weight: 900;
+			}
+		}
+	}
+}
