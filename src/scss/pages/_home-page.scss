@@ -2,39 +2,9 @@
 	min-height: 100vh;
 	position: relative;
 	color: white;
+	height: 100%;
 
-	.bg {
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		top: 0;
-		z-index: 0;
-
-		img {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			object-fit: cover;
-			position: relative;
-			z-index: -2;
-		}
-
-		&:after {
-			content: '';
-			position: absolute;
-			background: rgba($color: $c-primary, $alpha: 0.4);
-			left: 0;
-			right: 0;
-			bottom: 0;
-			top: 0;
-			z-index: -1;
-		}
-	}
-
-	.container {
+	.container-content {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -42,8 +12,12 @@
 		height: 100%;
 		position: relative;
 		z-index: 9;
-
 		padding-left: 20%;
+		min-height: 100vh;
+
+		@include XGA {
+			padding-left: 15%;
+		}
 	}
 
 	.about-me-container {
@@ -59,10 +33,22 @@
 		background: $c-primary;
 		flex-direction: column;
 		padding-bottom: 15vw;
+		height: 100%;
+
+		@include vHD {
+			width: 100%;
+			padding-bottom: 0;
+		}
 
 		@include XGA {
-			width: 80%;
+			width: 90%;
+			height: 500px;
+			padding-bottom: 0;
 			flex-direction: row;
+		}
+
+		@include HD {
+			height: 550px;
 		}
 
 		.bg {
@@ -70,6 +56,9 @@
 			width: 100%;
 			opacity: 0.6;
 
+			@include vHD {
+				opacity: 0.1;
+			}
 			@include XGA {
 				opacity: 0.1;
 			}
@@ -92,14 +81,21 @@
 			}
 
 			.kv-person {
-				box-shadow: 0px 10px 49px 10px rgba(0, 0, 0, 0.32);
+				box-shadow: 0px 70px 49px 10px rgba(0, 0, 0, 0.32);
 				position: relative;
 				bottom: -10vw;
 				width: 80%;
 
+				@include vHD {
+					bottom: -2.5rem;
+					max-width: 250px;
+				}
+
 				@include XGA {
-					bottom: -10rem;
-					width: 90%;
+					max-width: 300px;
+					bottom: -5rem;
+					width: 80%;
+					left: 1rem;
 				}
 
 				img {
@@ -116,9 +112,21 @@
 			flex-direction: column;
 			width: 70%;
 
-			@include XGA {
-				width: 50%;
+			p {
+				@include XGA {
+					width: 90%;
+				}
+			}
 
+			@include XGA {
+				padding: 2rem;
+				* {
+					text-align: left;
+				}
+			}
+
+			@include XGA {
+				width: 60%;
 				padding-left: 5%;
 			}
 
@@ -127,16 +135,56 @@
 				margin: 0 auto;
 				position: relative;
 
+				@include vHD {
+					max-width: 200px;
+					margin-left: 0 auto;
+					bottom: 0rem;
+				}
+
 				@include XGA {
+					max-width: 400px;
 					position: relative;
+					margin: 0;
+					margin-left: 1rem;
 					left: -2rem;
 				}
 			}
 
+			.about-me-footer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				margin: 0 auto;
+
+				@include XGA {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					flex-direction: row-reverse;
+					height: 100px;
+					width: 100%;
+					margin-top: 3rem;
+				}
+
+				@include XGA {
+					margin: 0;
+					margin-top: 3rem;
+					margin-bottom: -4rem;
+				}
+			}
 			.signature {
 				mix-blend-mode: lighten;
 				width: 70%;
 				margin: 0 auto;
+
+				@include XGA {
+					max-width: 250px;
+					margin: 0;
+					align-self: flex-end;
+					position: relative;
+					bottom: -0.5rem;
+				}
 			}
 
 			.social-media-icons {
@@ -146,9 +194,25 @@
 				width: 70%;
 				margin: 0 auto;
 				margin-top: 0;
+				flex-direction: row;
+				max-width: 200px;
+
+				@include vHD {
+					margin-bottom: 3rem;
+				}
+				@include XGA {
+					max-width: 120px;
+					align-self: flex-start;
+					justify-content: space-between;
+					margin: 0;
+				}
 
 				picture {
 					width: 15%;
+
+					@include XGA {
+						width: 25px;
+					}
 				}
 			}
 		}
